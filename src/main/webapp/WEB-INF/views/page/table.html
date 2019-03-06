@@ -1,5 +1,32 @@
 
+
 <div class="content-wrapper"  th:fragment="content">
+    <style>
+    ul {
+      display: flex;
+    }
+
+    li {
+      list-style-type: none;
+      padding: 10px;
+      position: relative;
+    }
+    .large {
+      position: absolute;
+      left: -9999px;
+}
+      li:hover .large {
+          left: 100px;
+          top: -150px;
+        }
+      .large-image {
+        border-radius: 4px;
+        box-shadow: 1px 1px 3px 3px rgba(127, 127, 127, 0.15);;
+      }
+      li > img {
+        width: 40px;
+      }
+    </style>
   <div class="page-header">
     <h3 class="page-title">
       Basic Tables
@@ -7,12 +34,12 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">Tables</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+        <li class="breadcrumb-item active" aria-current="page">Database</li>
       </ol>
     </nav>
   </div>
   <div class="row">
-    <div class="col-lg-6 grid-margin stretch-card">
+    <!-- <div class="col-lg-6 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Basic Table</h4>
@@ -115,7 +142,70 @@
           </table>
         </div>
       </div>
+    </div> -->
+
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Images Table</h4>
+          <p class="card-description">
+            BK-15 <code>.thesis</code>
+          </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>
+                  id
+                </th>
+                <th>
+                  vaule
+                </th>
+                <th>
+                  Date Time
+                </th>
+                <th>
+                  Meta1
+                </th>
+                <th>
+                  Meta2
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="item, iterStat : ${listImages}">
+                <td th:text="${item.id}"></td>
+             
+                <td class="py-1" >
+                    <ul>
+                        <li>
+                          <img style="min-width: 100px;min-height:100px" th:src="${item.value}" alt="adventure" >
+                          <span class="large">
+                              <img style="min-width: 300px;min-height: 300px;border-radius:0%"   th:src="${item.value}" class="large-image" alt="adventure" >
+                          </span>
+                          </li>
+                      </ul>
+                  <!-- <img src="../../images/faces-clipart/pic-1.png" alt="image"/> -->
+                </td>
+                <td th:text="${item.timedetail}"></td>
+                <td>
+                  <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
+
+<!-- 
     <div class="col-lg-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
@@ -281,8 +371,8 @@
           </table>
         </div>
       </div>
-    </div>
-    <div class="col-lg-12 grid-margin stretch-card">
+    </div> -->
+    <!-- <div class="col-lg-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Bordered table</h4>
@@ -575,8 +665,12 @@
           </table>
         </div>
       </div>
-    </div>
-    <div class="col-lg-12 stretch-card">
+    </div> -->
+
+
+
+
+    <!-- <div class="col-lg-12 stretch-card">
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Table with contextual classes</h4>
@@ -693,7 +787,7 @@
           </table>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 
