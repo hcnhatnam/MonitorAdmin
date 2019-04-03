@@ -5,6 +5,7 @@
  */
 package com.monitor.admin.entities;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,24 +30,34 @@ public class Images {
 
 	private String value;
 
-	@Temporal(javax.persistence.TemporalType.DATE)
-	private Date timedetail;
+//	@Temporal(javax.persistence.TemporalType.DATE)
+	private Timestamp timedetail;
+
+	public Timestamp getTimedetail() {
+		return timedetail;
+	}
+
+	public String getToken() {
+		return token;
+	}
 
 	private String meta1;
 
 	private String meta2;
+	
+	private String token;
+
+	public void setToken(String token) {
+		this.token = token;
+	}
 
 	
-	@DateTimeFormat(pattern = "dd-MMM-YYYY")
-	public Date getTimedetail() {
-		return timedetail;
-	}
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public void setTimedetail(Date timedetail) {
+	public void setTimedetail(Timestamp timedetail) {
 		this.timedetail = timedetail;
 	}
 
