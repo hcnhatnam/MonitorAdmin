@@ -25,11 +25,11 @@ public class Images {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private String id;
 
 	private String value;
 
-	@Temporal(javax.persistence.TemporalType.DATE)
+	@Temporal(javax.persistence.TemporalType.TIMESTAMP)
 	private Date timedetail;
 
 	private String meta1;
@@ -51,7 +51,7 @@ public class Images {
 		return timedetail;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -71,7 +71,7 @@ public class Images {
 		this.meta2 = meta2;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 

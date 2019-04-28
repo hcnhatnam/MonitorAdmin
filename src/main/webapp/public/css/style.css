@@ -17330,7 +17330,7 @@ input:focus {
   background: #ffffff;
   font-family: "ubuntu-regular", sans-serif;
   padding: 0;
-  width: 260px;
+  width: 190px;
   z-index: 11;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
@@ -17545,7 +17545,7 @@ input:focus {
   .sidebar-offcanvas {
     position: fixed;
     max-height: calc(100vh - 70px);
-    top: 70px;
+    top: 40px;
     bottom: 0;
     overflow: auto;
     right: -260px;
@@ -17650,7 +17650,7 @@ input:focus {
   .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown {
     left: 20px;
     right: 20px;
-    top: 70px;
+    top: 40px;
     width: calc(100% - 40px);
   }
 }
@@ -17737,8 +17737,8 @@ input:focus {
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease;
   background: #ffffff;
-  width: 260px;
-  height: 70px;
+  width: 190px;
+  height: 40px;
 }
 
 .sidebar-light .navbar.default-layout-navbar .navbar-brand-wrapper {
@@ -17787,8 +17787,8 @@ input:focus {
   color: #9c9fa6;
   padding-left: 24px;
   padding-right: 24px;
-  width: calc(100% - 260px);
-  height: 70px;
+  width: calc(100% - 190px);
+  height: 50px;
 }
 
 @media (max-width: 991px) {
@@ -17802,7 +17802,7 @@ input:focus {
 .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-toggler {
   border: 0;
   color: inherit;
-  height: 70px;
+  height: 40px;
   border-radius: 0px;
   padding-left: 5px;
   padding-right: 20px;
@@ -17870,7 +17870,7 @@ input:focus {
   font-size: 0.875rem;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
-  height: 70px;
+  height: 40px;
   display: -webkit-flex;
   display: flex;
   -webkit-align-items: center;
@@ -18505,14 +18505,14 @@ html {
 }
 
 .page-body-wrapper {
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 50px);
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
   flex-direction: row;
   padding-left: 0;
   padding-right: 0;
-  padding-top: 70px;
+  padding-top: 50px;
 }
 
 .page-body-wrapper.full-page-wrapper {
@@ -18523,12 +18523,13 @@ html {
 
 .main-panel {
   transition: width 0.25s ease, margin 0.25s ease;
-  width: calc(100% - 260px);
-  min-height: calc(100vh - 70px);
+  width: calc(100% - 190px);
+  min-height: calc(100vh - 83px);
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
+  padding-left: 5px;
 }
 
 @media (max-width: 991px) {
@@ -18540,7 +18541,7 @@ html {
 
 .content-wrapper {
   background: #f2edf3;
-  padding: 2.75rem 2.25rem;
+  padding: 1.25rem 1.0rem;
   width: 100%;
   -webkit-flex-grow: 1;
   flex-grow: 1;
@@ -18577,6 +18578,7 @@ code {
   color: #000;
   font-size: 1.125rem;
   margin-bottom: 0;
+  padding-left: 3em;
 }
 
 .page-title .page-title-icon {
@@ -20040,7 +20042,7 @@ code {
 }
 
 .card .card-body {
-  padding: 2.5rem 2.5rem;
+  padding: 0.5rem 0.5rem;
 }
 
 .card .card-body + .card-body {

@@ -1,8 +1,8 @@
 
-<div class="content-wrapper"  th:fragment="content">
+<div class="content-wrapper" style="padding:0rem;"   th:fragment="content">
   <div class="page-header">
     <h3 class="page-title">
-      Chart-js
+      Statistical 
     </h3>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
@@ -12,55 +12,11 @@
     </nav>
   </div>
   <div class="row">
-    <div class="col-lg-6 grid-margin stretch-card">
+    <div class="col-lg-9 grid-margin stretch-card mx-auto">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Line chart</h4>
-          <canvas id="lineChart" style="height:250px"></canvas>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6 grid-margin stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Bar chart</h4>
-          <canvas id="barChart" style="height:230px"></canvas>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-6 grid-margin stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Area chart</h4>
+          <h4 class="card-title">Request Statistical</h4>
           <canvas id="areaChart" style="height:250px"></canvas>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6 grid-margin stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Doughnut chart</h4>
-          <canvas id="doughnutChart" style="height:250px"></canvas>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-6 grid-margin stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Pie chart</h4>
-          <canvas id="pieChart" style="height:250px"></canvas>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6 grid-margin stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Scatter chart</h4>
-          <canvas id="scatterChart" style="height:250px"></canvas>
         </div>
       </div>
     </div>
@@ -73,5 +29,63 @@
   <script src="js/misc.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="js/chart.js"></script>
+  <!-- <script src="js/chart.js">
+  
+  </script> -->
+  <script th:inline="javascript">
+  var statisResult = /*[[${statisResult}]]*/ 'default';
+  console.log(statisResult);
+  labelStat=[]
+  dataStat=[]
+  for (let index = 0; index < statisResult.length; index++) {
+    timeReq=statisResult[index].timeReq
+    console.log(timeReq);
+    
+    labelStat.push(timeReq.substr(8,2)+"-"+timeReq.substr(5,2))
+    dataStat.push(parseInt(statisResult[index].numReq))
+  }
+  console.log(labelStat);
+  console.log(dataStat)
+  var areaData = {
+    labels:labelStat, //["2013", "2014", "2015", "2016", "2017","2017"],
+    datasets: [{
+      label: '# of Request',
+      data: dataStat,//[12, 19, 3, 5, 2,7, 3],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+      ],
+      borderColor: [
+        'rgba(255,99,132,1)',
+      ],
+      borderWidth: 1,
+      fill: true, // 3: no fill
+    }]
+  };
+
+    var areaOptions = {
+      scales: {
+            yAxes: [{
+                ticks: {
+                  min: 0,
+                  stepSize: 1,
+                  // max: 4
+                }
+            }]
+        },
+      plugins: {
+        filler: {
+          propagate: true
+        }
+      }
+    }
+
+    if ($("#areaChart").length) {
+      var areaChartCanvas = $("#areaChart").get(0).getContext("2d");
+      var areaChart = new Chart(areaChartCanvas, {
+        type: 'line',
+        data: areaData,
+        options: areaOptions
+      });
+    }
+  </script>
 </div>

@@ -18,12 +18,17 @@ var burl = "../../../public";
   <link rel="shortcut icon" href="/images/favicon.png" />
 </head>
 <body>
+
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
+    <dir style="position:absolute;z-index:10000;margin: 0px;    margin-top: -0.5em;">
+
+     <a class="navbar-brand brand-logo" href="/"><img src="/images/bk.png"  style="height: 80px" alt="logo"/></a>
+   </dir>
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="/"><img src="/images/logo.svg" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="/"><img src="/images/logo-mini.svg" alt="logo"/></a>
+        <!-- <a class="navbar-brand brand-logo" href="/"><img src="/images/bk.png"  style="width:30px;height: 30px" alt="logo"/></a> -->
+        <!-- <a class="navbar-brand brand-logo-mini" href="/"><img src="/images/logo-mini.svg" alt="logo"/></a> -->
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <div class="search-field d-none d-md-block">
@@ -184,20 +189,8 @@ var burl = "../../../public";
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item nav-profile">
-            <a href="#" class="nav-link">
-              <div class="nav-profile-image">
-                <img src="/images/avata/avata.jpg" alt="profile">
-                <span class="login-status online"></span> <!--change to offline or busy as needed-->              
-              </div>
-              <div class="nav-profile-text d-flex flex-column">
-                <span class="font-weight-bold mb-2">Hoàng Nam</span>
-                <span class="text-secondary text-small">Student</span>
-              </div>
-              <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
-            </a>
-          </li>
+        <ul class="nav" style="margin-top:3.0em">
+
           <li class="nav-item">
             <a class="nav-link" href="/index">
               <span class="menu-title">Dashboard</span>
@@ -252,35 +245,12 @@ var burl = "../../../public";
               </ul>
               </div>
           </li>
-          <li class="nav-item sidebar-actions">
-            <span class="nav-link">
-              <div class="border-bottom">
-                <h6 class="font-weight-normal mb-3">Projects</h6>                
-              </div>
-              <button class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Add a project</button>
-              <div class="mt-4">
-                <div class="border-bottom">
-                  <p class="text-secondary">Categories</p>                  
-                </div>
-                <ul class="gradient-bullet-list mt-4">
-                  <li>Free</li>
-                  <li>Pro</li>
-                </ul>
-              </div>
-            </span>
-          </li>
         </ul>
       </nav>
       <!-- partial -->
       <dir class="main-panel">
           <div class="content-wrapper" th:replace="${view} ::content">
             </div>
-          <footer class="footer">
-              <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2017 <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap Dash</a>. All rights reserved.</span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
-              </div>
-            </footer>
       </dir>
       
       <!-- main-panel ends -->
