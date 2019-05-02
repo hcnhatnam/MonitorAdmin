@@ -95,7 +95,7 @@ public class ControllerApp {
     public String geTable(Model model, HttpServletRequest req) {
         List<Images> target = new ArrayList<>();
         Iterable<Images> i = MainAppConfig.INSTANCE.model.getTableImage();
-        i.forEach(t -> t.setValue("data:image/png;base64," + t.getValue()));
+//        i.forEach(t -> t.setValue("data:image/png;base64," + t.getValue()));
         i.forEach(target::add);
         model.addAttribute("listImages", target);
         return "page/table";
