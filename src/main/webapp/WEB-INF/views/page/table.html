@@ -92,7 +92,7 @@
                   <!-- <img src="../../images/faces-clipart/pic-1.png" alt="image"/> -->
                 </td>
                 <td th:text="${item.timedetail}"></td>
-                <td th:text="${item.meta1.substring(0,40)}+'...'"></td>
+                <td th:text="${item.meta1.substring(0,20)}+'...'"></td>
                 <td th:text="${item.meta2}"></td>
                 <td th:text="${item.token}"></td>
                 <td><a type="button" class="btn btn-danger btn-xs" th:href="'/table/remove?imgid='+${item.id}" >Delete</a></td>

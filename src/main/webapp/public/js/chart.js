@@ -37,13 +37,5 @@ $(function() {
       options: areaOptions
     });
   }
-  var statisResult = /*[[${statisResult}]]*/ 'default';
-  console.log(statisResult);
-  labelStat=[]
-  dataStat=[]
-  for (let index = 0; index < statisResult.length; index++) {
-    timeReq=statisResult[index].timeReq
-    labelStat.push(temp1.timeReq.substr(8,2)+"-"+temp1.timeReq.substr(5,2))
-    dataStat.push(statisResult[index].numReq)
-  }
+
 });
