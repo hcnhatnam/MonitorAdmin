@@ -46,6 +46,12 @@ public class ControllerApp {
         return "page/dashboard";
     }
 
+    @RequestMapping(value = "/index2015", method = RequestMethod.GET)
+    public String genIndex2015(HttpServletRequest req) {
+        return "page/dashboard2015";
+    }
+
+    
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String genDashboard(HttpServletRequest req) {
         return "page/dashboard";
