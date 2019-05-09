@@ -48,18 +48,18 @@ public class ControllerApp {
 
     @RequestMapping(value = "/index2011", method = RequestMethod.GET)
     public String genIndex2011(HttpServletRequest req) {
-        return "page/dashboard2015";
+        return "page/dashboard2011";
     }
 
     
     @RequestMapping(value = "/index2013", method = RequestMethod.GET)
     public String genIndex2013(HttpServletRequest req) {
-        return "page/dashboard2011";
+        return "page/dashboard2013";
     }
 
     @RequestMapping(value = "/index2015", method = RequestMethod.GET)
     public String genIndex2015(HttpServletRequest req) {
-        return "page/dashboard2013";
+        return "page/dashboard2015";
     }
 
     
