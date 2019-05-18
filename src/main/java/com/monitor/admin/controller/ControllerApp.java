@@ -51,7 +51,6 @@ public class ControllerApp {
         return "page/dashboard2011";
     }
 
-    
     @RequestMapping(value = "/index2013", method = RequestMethod.GET)
     public String genIndex2013(HttpServletRequest req) {
         return "page/dashboard2013";
@@ -62,7 +61,6 @@ public class ControllerApp {
         return "page/dashboard2015";
     }
 
-    
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String genDashboard(HttpServletRequest req) {
         return "page/dashboard";
@@ -93,15 +91,13 @@ public class ControllerApp {
         List<Statistical> statisResult = new ArrayList<>();
         List<Statistical> statisticals = MainAppConfig.INSTANCE.model.getStatic();
         Collections.sort(statisticals);
-        List<Date> datesbt=Statistical.getDatesBetween(statisticals.get(0).timeReq, statisticals.get(statisticals.size()-1).timeReq);
-        for (Date date : datesbt) 
-        {
-            Optional<Statistical> statistical=Statistical.containsDateStatis(statisticals, date);
+        List<Date> datesbt = Statistical.getDatesBetween(statisticals.get(0).timeReq, statisticals.get(statisticals.size() - 1).timeReq);
+        for (Date date : datesbt) {
+            Optional<Statistical> statistical = Statistical.containsDateStatis(statisticals, date);
             if (statistical.isPresent()) {
                 statisResult.add(statistical.get());
-            }
-            else{
-                statisResult.add(new Statistical(0,date));
+            } else {
+                statisResult.add(new Statistical(0, date));
             }
         }
         model.addAttribute("statisResult", statisResult);
@@ -112,13 +108,21 @@ public class ControllerApp {
     public String geTable(Model model, HttpServletRequest req) {
         List<Images> target = new ArrayList<>();
         Iterable<Images> i = MainAppConfig.INSTANCE.model.getTableImage();
-//        i.forEach(t -> t.setValue("data:image/png;base64," + t.getValue()));
+        i.forEach(t -> {
+            if (t.getMeta2()!=null && t.getMeta2().length() > 15) {
+                t.setMeta2(t.getMeta2().substring(0, 15) + "...");
+            } else {
+                t.setMeta2("...");
+            }
+        });
+
         i.forEach(target::add);
         model.addAttribute("listImages", target);
         return "page/table";
     }
 
     @RequestMapping(value = "/table/remove", method = RequestMethod.GET)
+
     public String removeImage(HttpServletRequest req,
             @RequestParam(value = "imgid", defaultValue = "") String imgId) {
         MainAppConfig.INSTANCE.model.removeImage(imgId);
