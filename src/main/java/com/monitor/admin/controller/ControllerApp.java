@@ -109,13 +109,21 @@ public class ControllerApp {
         List<Images> target = new ArrayList<>();
         Iterable<Images> i = MainAppConfig.INSTANCE.model.getTableImage();
         i.forEach(t -> {
-            if (t.getMeta2()!=null && t.getMeta2().length() > 15) {
+            if (t.getMeta2() != null && t.getMeta2().length() > 15) {
                 t.setMeta2(t.getMeta2().substring(0, 15) + "...");
             } else {
                 t.setMeta2("...");
             }
         });
-
+        i.forEach(t -> {
+            if (t.getMeta1() != null) {
+                if (t.getMeta1().length() > 20) {
+                    t.setMeta1(t.getMeta1().substring(0, 20) + "...");
+                }
+            } else {
+                t.setMeta1("...");
+            }
+        });
         i.forEach(target::add);
         model.addAttribute("listImages", target);
         return "page/table";
