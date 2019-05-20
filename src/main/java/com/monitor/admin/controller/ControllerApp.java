@@ -41,7 +41,7 @@ public class ControllerApp {
         return "page/dashboard";
     }
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/indexbook", method = RequestMethod.GET)
     public String genIndex(HttpServletRequest req) {
         return "page/dashboard";
     }
